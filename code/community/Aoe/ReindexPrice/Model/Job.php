@@ -7,6 +7,7 @@ class Aoe_ReindexPrice_Model_Job {
      */
     public function process() {
 
+        $result = 'Reindexed products from stores:' . PHP_EOL;
         /** @var $store Mage_Core_Model_Store */
         foreach (Mage::app()->getStores() as $store) {
             /** @var $appEmulation Mage_Core_Model_App_Emulation */
@@ -21,10 +22,12 @@ class Aoe_ReindexPrice_Model_Job {
                 $this->reindex($ids);
                 $this->clearCache($ids);
             }
+            $result .= 'Store: '.$store->getName() . ' products: '. count($ids) . PHP_EOL;
 
             //Stop environment emulation and restore original store
             $appEmulation->stopEnvironmentEmulation($initialEnvironmentInfo);
         }
+        return $result;
     }
 
     protected function getProductIds() {
