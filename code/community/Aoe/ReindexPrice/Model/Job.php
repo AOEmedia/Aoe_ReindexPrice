@@ -10,6 +10,7 @@ class Aoe_ReindexPrice_Model_Job {
         $result = 'Reindexed products from stores:' . PHP_EOL;
         /** @var $store Mage_Core_Model_Store */
         foreach (Mage::app()->getStores() as $store) {
+            $ids = array();
             /** @var $appEmulation Mage_Core_Model_App_Emulation */
             $appEmulation = Mage::getSingleton('core/app_emulation');
             //Start environment emulation of the specified store
