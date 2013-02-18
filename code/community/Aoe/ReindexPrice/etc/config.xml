@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Aoe_ReindexPrice>
+			<version>0.1.0</version>
+		</Aoe_ReindexPrice>
+	</modules>
+
+	<global>
+		<helpers>
+			<aoe_reindexprice>
+				<class>Aoe_ReindexPrice_Helper</class>
+			</aoe_reindexprice>
+		</helpers>
+		<models>
+			<aoe_reindexprice>
+				<class>Aoe_ReindexPrice_Helper</class>
+			</aoe_reindexprice>
+		</models>
+	</global>
+
+	<crontab>
+		<jobs>
+			<aoe_reindexprice>
+				<schedule>
+					<config_path>sales/aoe_reindexprice/scheduler_cron_expr</config_path>
+				</schedule>
+				<run><model>aoe_reindexprice/job::process</model></run>
+			</aoe_reindexprice>
+		</jobs>
+	</crontab>
+
+	<default>
+		<sales>
+			<aoe_reindexprice>
+				<scheduler_cron_expr>1 * * * *</scheduler_cron_expr>
+			</aoe_reindexprice>
+		</sales>
+	</default>
+
+</config>

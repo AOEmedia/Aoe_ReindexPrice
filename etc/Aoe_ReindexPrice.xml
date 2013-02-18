@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Aoe_ReindexPrice>
+			<codePool>community</codePool>
+			<active>true</active>
+		</Aoe_ReindexPrice>
+	</modules>
+</config>
